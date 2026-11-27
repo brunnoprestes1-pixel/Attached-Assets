@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enigmas para a Dra. Larissa Resolver</title>
+  <style>
+    :root {
+      --bg-base: #fcf8f5;
+      --bg-elevated: #ffffff;
+      --bg-card: #fdf5f2;
+      --bg-card-soft: #f9ebe6;
+      --text-main: #2b1d19;
+      --text-muted: #5c453e;
+      --text-dim: #856860;
+      --accent: #c85a68;
+      --accent-hover: #b34856;
+      --accent-soft: rgba(200, 90, 104, 0.11);
+      --border: rgba(92, 69, 62, 0.16);
+      --border-strong: rgba(200, 90, 104, 0.42);
+      --success: #2f6f4e;
+      --warning: #b05a17;
+      --shadow: 0 10px 26px rgba(66, 36, 30, 0.08);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-sm: 9px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: var(--bg-base);
+      background-image:
+        radial-gradient(circle at 12% 10%, rgba(200, 90, 104, 0.08), transparent 36%),
+        radial-gradient(circle at 88% 18%, rgba(224, 122, 136, 0.08), transparent 38%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cpath fill='%23c85a68' fill-opacity='0.06' d='M24 22c-3.5-3.5-9.2-3.5-12.7 0-3.5 3.5-3.5 9.2 0 12.7L24 47.4l12.7-12.7c3.5-3.5 3.5-9.2 0-12.7-3.5-3.5-9.2-3.5-12.7 0zm48 42c-2.8-2.8-7.4-2.8-10.2 0-2.8 2.8-2.8 7.4 0 10.2L72 84.4l10.2-10.2c2.8-2.8 2.8-7.4 0-10.2-2.8-2.8-7.4-2.8-10.2 0z'/%3E%3C/svg%3E");
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+      padding: 18px 14px 48px;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .status-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px 10px;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .pill strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .btn {
+      appearance: none;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 11px 16px;
+      min-height: 44px;
+      cursor: pointer;
+      transition: transform 0.14s ease, background-color 0.18s ease, border-color 0.18s ease, opacity 0.18s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .btn:active:not(:disabled) {
+      transform: scale(0.98);
+    }
+
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card-soft);
+      color: var(--text-main);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      border-color: var(--border-strong);
+      background: #f5dfd7;
+    }
+
+    .btn-ghost {
+      background: var(--bg-card);
+      color: var(--text-muted);
+      border-color: var(--border);
+      padding: 6px 11px;
+      min-height: 36px;
+      font-size: 0.82rem;
+    }
+
+    .btn-ghost:hover:not(:disabled) {
+      color: var(--accent);
+      border-color: var(--border-strong);
+      background: var(--accent-soft);
+    }
+
+    .card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px 18px;
+      box-shadow: var(--shadow);
+    }
+
+    @media (min-width: 540px) {
+      body {
+        padding: 28px 18px 60px;
+      }
+      .card {
+        padding: 28px 26px;
+      }
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid var(--border-strong);
+      border-radius: 999px;
+      padding: 4px 11px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(1.45rem, 4.5vw, 2rem);
+      line-height: 1.22;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      font-weight: 750;
+    }
+
+    h2 {
+      font-size: clamp(1.2rem, 3.8vw, 1.5rem);
+      line-height: 1.28;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .lead {
+      font-size: 1.02rem;
+      color: var(--text-main);
+    }
+
+    .info-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 15px 16px;
+      margin: 16px 0 20px;
+    }
+
+    .info-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .enigma-story {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin: 14px 0 18px;
+      color: var(--text-main);
+      font-size: 1.02rem;
+    }
+
+    .hints-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .hint-panel {
+      background: var(--bg-card);
+      border: 1px dashed var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 11px 13px;
+      margin-bottom: 14px;
+      font-size: 0.92rem;
+      color: var(--text-main);
+    }
+
+    .hint-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .field-group {
+      margin: 16px 0;
+    }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 7px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 88px;
+      resize: vertical;
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      font-family: inherit;
+      font-size: 0.98rem;
+      line-height: 1.45;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(200, 90, 104, 0.16);
+    }
+
+    textarea::placeholder {
+      color: var(--text-dim);
+    }
+
+    .field-error {
+      margin-top: 7px;
+      font-size: 0.85rem;
+      color: var(--warning);
+      min-height: 20px;
+    }
+
+    .actions-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .actions-row .btn {
+      flex: 1 1 150px;
+    }
+
+    .nav-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .nav-row .btn {
+      flex: 1 1 140px;
+    }
+
+    .solution-box {
+      margin-top: 14px;
+      background: rgba(47, 111, 78, 0.08);
+      border: 1px solid rgba(47, 111, 78, 0.28);
+      border-radius: var(--radius-md);
+      padding: 14px 15px;
+    }
+
+    .solution-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--success);
+      margin-bottom: 5px;
+    }
+
+    .solution-text {
+      color: var(--text-main);
+      font-size: 0.96rem;
+      margin-bottom: 6px;
+    }
+
+    .ironic-note {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 0;
+    }
+
+    .accumulated-section {
+      margin-top: 22px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px 16px;
+      box-shadow: var(--shadow);
+    }
+
+    @media (min-width: 540px) {
+      .accumulated-section {
+        padding: 20px 24px;
+      }
+    }
+
+    .accumulated-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .accumulated-header h3 {
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+
+    .compact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .compact-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+    }
+
+    .compact-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .compact-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+    }
+
+    .compact-a {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .compact-guess {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      margin-bottom: 0;
+      word-break: break-word;
+    }
+
+    .congrats-banner {
+      background: linear-gradient(135deg, rgba(200, 90, 104, 0.12), rgba(244, 182, 190, 0.18));
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 22px 18px;
+      text-align: center;
+      margin: 14px 0 18px;
+    }
+
+    .congrats-title {
+      font-size: clamp(1.45rem, 4.8vw, 2.05rem);
+      line-height: 1.2;
+      color: var(--text-main);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .congrats-sub {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+    }
+
+    .reward-heading {
+      font-size: 1.15rem;
+      font-weight: 750;
+      color: var(--text-main);
+      margin-top: 8px;
+      margin-bottom: 6px;
+    }
+
+    .envelope-stage {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .envelope-btn {
+      appearance: none;
+      width: 100%;
+      max-width: 390px;
+      background: var(--bg-card);
+      border: 2px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 22px 18px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      text-align: center;
+      animation: envelopeFloat 2.6s ease-in-out infinite;
+    }
+
+    .envelope-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(200, 90, 104, 0.16);
+      border-color: var(--accent);
+    }
+
+    .envelope-btn.is-open {
+      animation: none;
+      cursor: default;
+      border-style: solid;
+      background: #fffdfb;
+    }
+
+    @keyframes envelopeFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-4px);
+      }
+    }
+
+    .envelope-flap {
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      border: 1px solid var(--border-strong);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      color: var(--accent);
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s ease;
+    }
+
+    .envelope-btn.is-open .envelope-flap {
+      transform: rotateX(180deg) scale(0.92);
+      background: rgba(47, 111, 78, 0.12);
+      color: var(--success);
+    }
+
+    .envelope-prompt {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .envelope-hint {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+    }
+
+    .letter-reveal {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      margin-top: 14px;
+      animation: letterUnfold 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+      transform-origin: top center;
+    }
+
+    @keyframes letterUnfold {
+      0% {
+        opacity: 0;
+        transform: translateY(-10px) scaleY(0.92);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scaleY(1);
+      }
+    }
+
+    .reward-message {
+      font-size: 1.03rem;
+      color: var(--text-main);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    .feedback-toast {
+      font-size: 0.86rem;
+      color: var(--success);
+      min-height: 20px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <div class="topbar" role="region" aria-label="Status do jogo">
+      <div class="status-group">
+        <span class="pill" id="stagePill">Etapa inicial</span>
+        <span class="pill">Resolvidos: <strong id="solvedCount">0</strong>/4</span>
+        <span class="pill">Dicas: <strong id="hintsCount">0</strong></span>
+      </div>
+      <button type="button" class="btn btn-ghost" id="resetBtn">Recomeçar</button>
+    </div>
+
+    <section id="screenContainer"></section>
+    <section id="accumulatedContainer"></section>
+  </main>
+
+  <script>
+    const REWARD_TEXT =
+      "Parabéns por chegar até o fim e mostrar o seu raciocínio. Como recompensa, você garante seu vale mil beijinhos e chamemgos e uma massagem especial só nois dois. Muhehe 😏";
+
+    const ENIGMAS = [
+      {
+        number: 1,
+        title: "O Plantão Silencioso",
+        story:
+          "Um homem entra no pronto-socorro sem falar uma palavra, deita na maca e aponta para a própria garganta. Não está engasgado, não há ferimentos visíveis e o exame de sangue não mostra nada anormal. Mesmo assim, o médico descobre o motivo em segundos. O que aconteceu?",
+        hints: [
+          "Não é um problema físico na garganta nem um objeto preso.",
+          "Pense no que faz alguém perder a voz de repente sem ter nenhuma lesão."
+        ],
+        answer:
+          "Ele tinha acabado de levar um susto tão grande que ficou sem voz temporariamente — e o médico apenas esperou alguns minutos enquanto provocava ele com calma até a voz voltar.",
+        ironicNote: "Diagnóstico: susto dramático. Prognóstico: vai sobreviver sem soro."
+      },
+      {
+        number: 2,
+        title: "A Sala Trancada por Dentro",
+        story:
+          "Dentro de uma sala fechada por dentro, sem janelas abertas e com a porta intacta, encontram um homem no chão e uma poça d'água ao redor. Não há cano estourado, nem chuva dentro do quarto. Como a água foi parar ali?",
+        hints: [
+          "Nem toda água começa líquida.",
+          "O que derrete com o tempo e não deixa embalagem no chão?"
+        ],
+        answer:
+          "Era um bloco de gelo que ele usou para alcançar algo no alto ou esfriar o ambiente — o gelo derreteu completamente e virou a poça.",
+        ironicNote: "Se você pensou em filme de terror, respira fundo e tenta de novo."
+      },
+      {
+        number: 3,
+        title: "O Exame Impossível",
+        story:
+          "Um paciente chega ao consultório dizendo: 'Doutor, toda vez que eu fecho os olhos, eu vejo tudo escuro'. O médico faz um exame rápido, sorri de canto e diz que não há nada de errado com a visão dele. Por que o comentário do paciente não fazia sentido como sintoma?",
+        hints: [
+          "Leia a frase do paciente com atenção literal.",
+          "O que acontece normalmente quando qualquer pessoa fecha os olhos?"
+        ],
+        answer:
+          "Ver escuro ao fechar os olhos é o funcionamento normal de qualquer pessoa — ele só estava descrevendo o óbvio como se fosse um sintoma raro.",
+        ironicNote: "Futura médica, já dá para reconhecer um paciente dramático à distância."
+      },
+      {
+        number: 4,
+        title: "O Último Plantão da Noite",
+        story:
+          "Duas pessoas trabalham juntas na mesma madrugada. Uma delas passa a noite inteira em pé, olhando fixamente para o mesmo ponto sem piscar, e não reclama de cansaço nem de sono. Quem é essa pessoa?",
+        hints: [
+          "Não é estagiário em início de semestre (por pouco).",
+          "É um objeto ou equipamento comum de trabalho."
+        ],
+        answer:
+          "É um relógio de parede (ou câmera/monitor fixo) — não é uma pessoa, só parecia trabalhar no mesmo ritmo da madrugada.",
+        ironicNote: "Acertou ou caiu na pegadinha? De qualquer jeito, o fim do caso chegou."
+      }
+    ];
+
+    const state = {
+      screen: 0,
+      guesses: { 1: "", 2: "", 3: "", 4: "" },
+      errors: { 1: "", 2: "", 3: "", 4: "" },
+      revealedAnswers: { 1: false, 2: false, 3: false, 4: false },
+      hintsOpened: { 1: [false, false], 2: [false, false], 3: [false, false], 4: [false, false] },
+      collapsedHistory: {},
+      envelopeShown: false,
+      letterOpened: false,
+      copyFeedback: ""
+    };
+
+    const screenContainer = document.getElementById("screenContainer");
+    const accumulatedContainer = document.getElementById("accumulatedContainer");
+    const stagePill = document.getElementById("stagePill");
+    const solvedCountEl = document.getElementById("solvedCount");
+    const hintsCountEl = document.getElementById("hintsCount");
+    const resetBtn = document.getElementById("resetBtn");
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function getTotalHintsUsed() {
+      let total = 0;
+      for (const key of Object.keys(state.hintsOpened)) {
+        for (const opened of state.hintsOpened[key]) {
+          if (opened) total += 1;
+        }
+      }
+      return total;
+    }
+
+    function getSolvedCount() {
+      let count = 0;
+      for (let i = 1; i <= 4; i++) {
+        if (state.revealedAnswers[i]) count += 1;
+      }
+      return count;
+    }
+
+    function updateTopbar() {
+      if (state.screen === 0) {
+        stagePill.textContent = "Informativo inicial";
+      } else if (state.screen >= 1 && state.screen <= 4) {
+        stagePill.textContent = `Enigma ${state.screen} de 4`;
+      } else {
+        stagePill.textContent = "Recompensa";
+      }
+      solvedCountEl.textContent = String(getSolvedCount());
+      hintsCountEl.textContent = String(getTotalHintsUsed());
+    }
+
+    function renderIntroScreen() {
+      screenContainer.innerHTML = `
+        <article class="card">
+          <span class="eyebrow">Edição Especial ♥</span>
+          <h1>Enigmas para a Dra. Larissa Resolver</h1>
+          <p class="lead">
+            Quatro casos curtos de pensamento lateral para testar lógica, atenção aos detalhes e sangue-frio — sem pressa e jogando no seu próprio ritmo.
+          </p>
+          <div class="info-box">
+            <p>
+              <strong>Como funciona:</strong> cada enigma tem até duas pistas opcionais e um campo para você anotar o que achou. Para avançar para o próximo, basta escrever algo no campo de palpite. As respostas só aparecem quando você revelar ou avançar para os próximos enigmas.
+            </p>
+          </div>
+          <div class="actions-row">
+            <button type="button" class="btn btn-primary" id="startBtn">Prosseguir</button>
+          </div>
+        </article>
+      `;
+
+      document.getElementById("startBtn").addEventListener("click", () => {
+        state.screen = 1;
+        render();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+
+    function renderEnigmaScreen(num) {
+      const enigma = ENIGMAS[num - 1];
+      const currentGuess = state.guesses[num] || "";
+      const hasText = currentGuess.trim().length > 0;
+      const isRevealed = Boolean(state.revealedAnswers[num]);
+      const hintsState = state.hintsOpened[num];
+      const nextLabel = num < 4 ? "Prosseguir" : "Prosseguir para o final";
+
+      const hintsHtml = hintsState
+        .map((opened, idx) => {
+          if (!opened) return "";
+          return `
+            <div class="hint-panel">
+              <span class="hint-label">Pista ${idx + 1}</span>
+              ${escapeHtml(enigma.hints[idx])}
+            </div>
+          `;
+        })
+        .join("");
+
+      const solutionHtml = isRevealed
+        ? `
+          <div class="solution-box">
+            <div class="solution-title">Resposta do Enigma ${num}</div>
+            <p class="solution-text">${escapeHtml(enigma.answer)}</p>
+            <p class="ironic-note">${escapeHtml(enigma.ironicNote)}</p>
+          </div>
+        `
+        : "";
+
+      screenContainer.innerHTML = `
+        <article class="card">
+          <span class="eyebrow">Enigma ${num} de 4 ♥</span>
+          <h2>${escapeHtml(enigma.title)}</h2>
+          <div class="enigma-story">${escapeHtml(enigma.story)}</div>
+
+          <div class="hints-row">
+            <button type="button" class="btn btn-ghost" id="hintBtn0" ${hintsState[0] ? "disabled" : ""}>
+              ${hintsState[0] ? "Pista 1 aberta" : "Ver pista 1"}
+            </button>
+            <button type="button" class="btn btn-ghost" id="hintBtn1" ${hintsState[1] ? "disabled" : ""}>
+              ${hintsState[1] ? "Pista 2 aberta" : "Ver pista 2"}
+            </button>
+          </div>
+
+          ${hintsHtml}
+
+          <div class="field-group">
+            <label for="guessInput">Seu palpite ou raciocínio (obrigatório digitar algo para prosseguir)</label>
+            <textarea
+              id="guessInput"
+              placeholder="Escreva qualquer hipótese, dúvida ou chute aqui..."
+            >${escapeHtml(currentGuess)}</textarea>
+            <div class="field-error" id="guessError">${escapeHtml(state.errors[num] || "")}</div>
+          </div>
+
+          <div class="actions-row">
+            <button type="button" class="btn btn-secondary" id="revealBtn">
+              ${isRevealed ? "Resposta revelada" : "Revelar resposta"}
+            </button>
+          </div>
+
+          ${solutionHtml}
+
+          <div class="nav-row">
+            <button type="button" class="btn btn-secondary" id="prevBtn">Voltar</button>
+            <button type="button" class="btn btn-primary" id="nextBtn" ${hasText ? "" : "disabled"}>
+              ${nextLabel}
+            </button>
+          </div>
+        </article>
+      `;
+
+      const guessInput = document.getElementById("guessInput");
+      const guessError = document.getElementById("guessError");
+      const nextBtn = document.getElementById("nextBtn");
+
+      guessInput.addEventListener("input", (e) => {
+        state.guesses[num] = e.target.value;
+        const nowHasText = e.target.value.trim().length > 0;
+        nextBtn.disabled = !nowHasText;
+        if (nowHasText && state.errors[num]) {
+          state.errors[num] = "";
+          guessError.textContent = "";
+        }
+      });
+
+      document.getElementById("hintBtn0").addEventListener("click", () => {
+        state.hintsOpened[num][0] = true;
+        render();
+      });
+
+      document.getElementById("hintBtn1").addEventListener("click", () => {
+        state.hintsOpened[num][1] = true;
+        render();
+      });
+
+      document.getElementById("revealBtn").addEventListener("click", () => {
+        state.revealedAnswers[num] = true;
+        render();
+      });
+
+      document.getElementById("prevBtn").addEventListener("click", () => {
+        state.screen = num - 1;
+        render();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      nextBtn.addEventListener("click", () => {
+        if (state.guesses[num].trim().length === 0) {
+          state.errors[num] = "Digite pelo menos alguma coisa no campo antes de prosseguir.";
+          guessError.textContent = state.errors[num];
+          guessInput.focus();
+          return;
+        }
+        state.errors[num] = "";
+        state.screen = num + 1;
+        render();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+
+    function renderFinalScreen() {
+      const closedEnvelopeHtml = state.envelopeShown
+        ? `
+          <div class="envelope-stage">
+            <button
+              type="button"
+              class="envelope-btn ${state.letterOpened ? "is-open" : ""}"
+              id="openLetterBtn"
+              aria-expanded="${state.letterOpened ? "true" : "false"}"
+            >
+              <div class="envelope-flap">${state.letterOpened ? "♥" : "✉"}</div>
+              <div class="envelope-prompt">
+                ${state.letterOpened ? "Carta aberta" : "Carta fechada — toque para abrir"}
+              </div>
+              <p class="envelope-hint">
+                ${
+                  state.letterOpened
+                    ? "A mensagem da sua recompensa está revelada logo abaixo."
+                    : "Clique aqui para abrir o envelope e ler o recado."
+                }
+              </p>
+            </button>
+          </div>
+        `
+        : "";
+
+      const openLetterBodyHtml = state.letterOpened
+        ? `
+          <div class="letter-reveal">
+            <p class="reward-message">${escapeHtml(REWARD_TEXT)}</p>
+            <div class="actions-row">
+              <button type="button" class="btn btn-secondary" id="copyRewardBtn">Copiar recado</button>
+            </div>
+            <div class="feedback-toast" id="copyFeedback">${escapeHtml(state.copyFeedback || "")}</div>
+          </div>
+        `
+        : "";
+
+      screenContainer.innerHTML = `
+        <article class="card">
+          <span class="eyebrow">Recompensa ♥</span>
+          <div class="congrats-banner">
+            <div class="congrats-title">Parabéns por resolver todos os enigmas!</div>
+            <p class="congrats-sub">
+              Você concluiu os 4 enigmas com ${getSolvedCount()} resposta(s) revelada(s) e ${getTotalHintsUsed()} pista(s) aberta(s).
+            </p>
+          </div>
+
+          <h2 class="reward-heading">Recompensa</h2>
+          <p>Toque no botão abaixo para receber sua carta fechada.</p>
+
+          <div class="actions-row">
+            <button type="button" class="btn btn-primary" id="claimRewardBtn">
+              ${state.envelopeShown ? "Carta enviada" : "Recolher recompensa"}
+            </button>
+          </div>
+
+          ${closedEnvelopeHtml}
+          ${openLetterBodyHtml}
+
+          <div class="nav-row">
+            <button type="button" class="btn btn-secondary" id="backToLastBtn">Voltar ao Enigma 4</button>
+          </div>
+        </article>
+      `;
+
+      document.getElementById("claimRewardBtn").addEventListener("click", () => {
+        state.envelopeShown = true;
+        render();
+      });
+
+      if (state.envelopeShown && !state.letterOpened) {
+        document.getElementById("openLetterBtn").addEventListener("click", () => {
+          state.letterOpened = true;
+          render();
+        });
+      }
+
+      if (state.letterOpened) {
+        document.getElementById("copyRewardBtn").addEventListener("click", async () => {
+          try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              await navigator.clipboard.writeText(REWARD_TEXT);
+            } else {
+              const temp = document.createElement("textarea");
+              temp.value = REWARD_TEXT;
+              document.body.appendChild(temp);
+              temp.select();
+              document.execCommand("copy");
+              document.body.removeChild(temp);
+            }
+            state.copyFeedback = "Recado copiado para a área de transferência.";
+          } catch (_) {
+            state.copyFeedback = "Não foi possível copiar automaticamente; selecione o texto acima.";
+          }
+          const fb = document.getElementById("copyFeedback");
+          if (fb) fb.textContent = state.copyFeedback;
+        });
+      }
+
+      document.getElementById("backToLastBtn").addEventListener("click", () => {
+        state.screen = 4;
+        render();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+
+    function renderAccumulatedAnswers() {
+      const items = [];
+
+      for (let i = 1; i <= 4; i++) {
+        const isPastEnigma = state.screen > i;
+        const isExplicitlyRevealed = Boolean(state.revealedAnswers[i]);
+        if (!isPastEnigma && !isExplicitlyRevealed) continue;
+
+        const enigma = ENIGMAS[i - 1];
+        const isCollapsed = Boolean(state.collapsedHistory[i]);
+        const guessText = (state.guesses[i] || "").trim();
+
+        items.push(`
+          <div class="compact-item">
+            <div class="compact-top">
+              <span class="compact-tag">Enigma ${i} · ${escapeHtml(enigma.title)} ♥</span>
+              <button type="button" class="btn btn-ghost" data-toggle-acc="${i}">
+                ${isCollapsed ? "Expandir" : "Recolher"}
+              </button>
+            </div>
+            ${
+              isCollapsed
+                ? ""
+                : `
+                  <p class="compact-a"><strong>Resposta:</strong> ${escapeHtml(enigma.answer)}</p>
+                  ${
+                    guessText
+                      ? `<p class="compact-guess"><strong>Seu palpite:</strong> ${escapeHtml(guessText)}</p>`
+                      : ""
+                  }
+                `
+            }
+          </div>
+        `);
+      }
+
+      if (items.length === 0) {
+        accumulatedContainer.innerHTML = "";
+        return;
+      }
+
+      accumulatedContainer.innerHTML = `
+        <section class="accumulated-section" aria-label="Respostas acumuladas">
+          <div class="accumulated-header">
+            <h3>Respostas acumuladas (${items.length} de 4)</h3>
+          </div>
+          <div class="compact-list">
+            ${items.join("")}
+          </div>
+        </section>
+      `;
+
+      accumulatedContainer.querySelectorAll("[data-toggle-acc]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const idx = Number(btn.getAttribute("data-toggle-acc"));
+          state.collapsedHistory[idx] = !state.collapsedHistory[idx];
+          renderAccumulatedAnswers();
+        });
+      });
+    }
+
+    function render() {
+      updateTopbar();
+
+      if (state.screen === 0) {
+        renderIntroScreen();
+      } else if (state.screen >= 1 && state.screen <= 4) {
+        renderEnigmaScreen(state.screen);
+      } else {
+        renderFinalScreen();
+      }
+
+      renderAccumulatedAnswers();
+    }
+
+    resetBtn.addEventListener("click", () => {
+      state.screen = 0;
+      state.guesses = { 1: "", 2: "", 3: "", 4: "" };
+      state.errors = { 1: "", 2: "", 3: "", 4: "" };
+      state.revealedAnswers = { 1: false, 2: false, 3: false, 4: false };
+      state.hintsOpened = { 1: [false, false], 2: [false, false], 3: [false, false], 4: [false, false] };
+      state.collapsedHistory = {};
+      state.envelopeShown = false;
+      state.letterOpened = false;
+      state.copyFeedback = "";
+      render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    render();
+  </script>
+</body>
+</html>
